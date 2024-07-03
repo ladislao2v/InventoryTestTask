@@ -20,20 +20,10 @@ namespace Code.Model.Weapons
         {
             if(!_inventory.TryFindSlot(_config.Ammo, out ISlot slot))
                 return;
-
-            var possibleVolley = slot.Count.Value - _config.Volley;
-
-            if (possibleVolley <= 0)
-                possibleVolley = slot.Count.Value;
-            else
-                possibleVolley = _config.Volley;
             
-            slot.RemoveCount(possibleVolley);
+            slot.RemoveCount(_config.Volley);
             
-            for (int i = 0; i < possibleVolley; i++)
-            {
-                unit.TakeDamage(_config.Damage);
-            }
+            unit.TakeDamage(_config.Damage);
         }
     }
 }
