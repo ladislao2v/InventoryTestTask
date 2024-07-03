@@ -41,15 +41,15 @@ namespace Code.StateMachine.States
             
             if(_inventory.IsEmpty)
                 FillInventory(allItems);
-
-            _stateMachine
-                .EnterState<PlayerTurnState>();
-
+                
             IRandomItemService randomItemService = new RandomItemService(allItems);
 
             _player.Died += _gameOverPopup.Show;
             _enemy.Died += () => _inventory.Add(randomItemService.GetRandomItem());
             _enemy.Died += () => _enemy.Hill(100);
+
+            _stateMachine
+                .EnterState<PlayerTurnState>();
         }
 
         public void Exit()
