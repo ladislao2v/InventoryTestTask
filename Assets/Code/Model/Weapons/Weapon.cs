@@ -9,8 +9,6 @@ namespace Code.Model.Weapons
     {
         private readonly WeaponConfig _config;
         private readonly IInventory _inventory;
-        
-        private float _delay = 0.75f;
 
         public Weapon(WeaponConfig config, IInventory inventory)
         {
@@ -18,7 +16,7 @@ namespace Code.Model.Weapons
             _inventory = inventory;
         }
         
-        public async void Shoot(Unit unit)
+        public void Shoot(Unit unit)
         {
             if(!_inventory.TryFindSlot(_config.Ammo, out ISlot slot))
                 return;
@@ -35,7 +33,6 @@ namespace Code.Model.Weapons
             for (int i = 0; i < possibleVolley; i++)
             {
                 unit.TakeDamage(_config.Damage);
-                await UniTask.WaitForSeconds(_delay);
             }
         }
     }

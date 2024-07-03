@@ -1,5 +1,4 @@
 ﻿using Code.Services.SaveLoadDataService;
-using UnityEngine;
 
 namespace Code.Model.Units
 {
