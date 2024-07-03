@@ -18,7 +18,7 @@ namespace Code.StateMachine.States
         private readonly IInventory _inventory;
         private readonly Player _player;
         private readonly Enemy _enemy;
-        private GameOverPopup _gameOverPopup;
+        private readonly GameOverPopup _gameOverPopup;
 
         public BootState(IStateMachine stateMachine, IAssetProvider assetProvider, 
             IGameDataService gameDataService, IInventory inventory, 
