@@ -4,7 +4,7 @@ namespace Code.Model.Units
 {
     public class Enemy : Unit, ILoadable, ISavable
     {
-        public int Damage => 7;
+        public int Damage => 5;
         protected override int GetDealtDamage(int damage) => damage;
 
         public void LoadData(ISaveLoadDataService saveLoadDataService)

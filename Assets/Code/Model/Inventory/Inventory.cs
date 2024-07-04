@@ -27,10 +27,13 @@ namespace Code.Model.Inventory
                 }
                 else
                 {
-                    var newCount = slot.Count.Value + count - item.MaxStack;
+                    slot.AddCount(item.MaxStack - slot.Count.Value);
                     
+                    var newCount = slot.Count.Value + count - item.MaxStack;
                     _slots.Add(new Slot(item, newCount, Remove));
                 }
+
+                return;
             }
             
             _slots.Add(new Slot(item, count, Remove));
