@@ -21,7 +21,7 @@ namespace Code.Model.Inventory
 
             if (TryFindSlot(item, out ISlot slot))
             {
-                if (item.MaxStack - slot.Count.Value > count)
+                if (item.MaxStack - slot.Count.Value >= count)
                 {
                     slot.AddCount(count);
                 }
