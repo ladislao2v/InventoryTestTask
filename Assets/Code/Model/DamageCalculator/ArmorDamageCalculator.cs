@@ -10,6 +10,6 @@ namespace Code.Model.DamageCalculator
         public ArmorDamageCalculator(UnitArmor armor) => _armor = armor;
 
         public int Calculate(int damage) => 
-            (int)Math.Ceiling((decimal)damage - _armor.Value / damage);
+            damage - 2 * (int)Math.Ceiling((decimal) _armor.Value / damage);
     }
 }
