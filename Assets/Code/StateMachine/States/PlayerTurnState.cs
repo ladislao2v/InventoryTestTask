@@ -17,12 +17,9 @@ namespace Code.StateMachine.States
             _gameDataService = gameDataService;
         }
         
-        public async void Enter()
-        {
-            Debug.Log("PlayerTurnState enter");
-        }
+        public void Enter() { }
 
-        public async void Exit()
+        public void Exit()
         {
             _gameDataService.SaveData();
         }

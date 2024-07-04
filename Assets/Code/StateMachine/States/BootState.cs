@@ -45,7 +45,9 @@ namespace Code.StateMachine.States
             IRandomItemService randomItemService = new RandomItemService(allItems);
 
             _player.Died += _gameOverPopup.Show;
-            _enemy.Died += () => _inventory.Add(randomItemService.GetRandomItem());
+
+            var randomItem = randomItemService.GetRandomItem();
+            _enemy.Died += () => _inventory.Add(randomItem, randomItem.MaxStack);
             _enemy.Died += () => _enemy.Hill(100);
 
             _stateMachine

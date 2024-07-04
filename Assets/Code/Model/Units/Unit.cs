@@ -13,6 +13,9 @@ namespace Code.Model.Units
         
         public void TakeDamage(int damage)
         {
+            if(_health.Value <= 0)
+                return;
+
             _health.Value -= GetDealtDamage(damage);
             
             if(_health.Value <= 0)
@@ -31,7 +34,6 @@ namespace Code.Model.Units
         {
             if (value == 0)
                 value = 100;
-
             
             _health.Value = value;
         }

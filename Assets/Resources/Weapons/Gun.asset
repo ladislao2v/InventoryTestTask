@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 9
-  <Volley>k__BackingField: 1
+  <Volley>k__BackingField: 3
   <Ammo>k__BackingField: {fileID: 11400000, guid: 4b02d6e337471b44390f75ca92d694d3, type: 2}
