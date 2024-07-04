@@ -7,6 +7,8 @@ namespace Code.Model.Units
     {
         private readonly ReactiveProperty<int> _health = new(100);
         
+        private int _maxHealth = 100;
+
         public IReadOnlyReactiveProperty<int> Health => _health;
 
         public event Action Died;
@@ -28,12 +30,14 @@ namespace Code.Model.Units
                 throw new ArgumentException(nameof(points));
             
             _health.Value += points;
+
+            Math.Clamp(_health.Value, 0, _maxHealth);
         }
 
         protected void LoadHealth(int value)
         {
             if (value == 0)
-                value = 100;
+                value = _maxHealth;
             
             _health.Value = value;
         }
